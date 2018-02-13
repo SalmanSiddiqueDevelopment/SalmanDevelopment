@@ -1,0 +1,20 @@
+
+
+function filter(a1,returntype)
+{
+console.log(a1,returntype);
+var a2 = a1.filter(function(item) { return typeof item === returntype; });// A2 unable to get values
+console.log(a2,returntype);
+return a2;
+}
+
+var a1 = ['a', 10, 'b', 20, 'c', 30];
+var a2=[];
+returntype='Number';
+console.log(filter(a1,returntype));
+
+
+
+// /var a1 = ['a', 10, 'b', 20, 'c', 30];
+// var a2 = a1.filter(function(item) { return typeof item === 'number'; });
+// console.log(a2); // logs [10, 20, 30]

@@ -1,0 +1,75 @@
+MongoDb 06-02-2018
+
+
+INSERT
+
+db.restaurants.insert(
+   {
+      "address" : {
+         "street" : "2 Avenue",
+         "zipcode" : "10075",
+         "building" : "1480",
+         "coord" : [ -73.9557413, 40.7720266 ]
+      },
+      "borough" : "Manhattan",
+      "cuisine" : "Italian",
+      "grades" : [
+         {
+            "date" : ISODate("2014-10-01T00:00:00Z"),
+            "grade" : "A",
+            "score" : 11
+         },
+         {
+            "date" : ISODate("2014-01-16T00:00:00Z"),
+            "grade" : "B",
+            "score" : 17
+         }
+      ],
+      "name" : "Vella",
+      "restaurant_id" : "41704620"
+   }
+)
+
+ db.restaurants.find().pretty()
+
+Link for JSON DOWNLOAD -> https://drive.google.com/open?id=1mhk1zs7ohKDBF_i1YAcMmNl7nOj_c5lu
+
+MONGOIMPORT TO IMPORT DATA 
+
+mongoimport --db test --collection restaurants --drop --file ~/downloads/primer-dataset.json
+
+Run the command in new CMD terminal , in windows paste or save the file in the MONGO installation directory 
+
+db.restaurants.find().count()
+
+CRUD Operations
+
+db.restaurants.find({name:"Vella"})
+db.restaurants.find( { "address.zipcode": "10075" } )
+
+db.restaurants.find({borough:"Manhattan"}).count()
+
+db.restaurants.find( { "grades.grade": "B" } ).count()
+
+ db.restaurants.find( { "grades.score": { $gt: 30 } } ).count()
+
+db.restaurants.find( { "cuisine": "Italian", "address.zipcode": "10075" } )
+
+db.restaurants.find(
+   { $or: [
+ { "cuisine": "Italian" },
+ { "address.zipcode": "10075" } 
+] }
+)
+
+
+
+
+
+db.restaurants.find().sort( { "borough": 1, "address.zipcode": 1 } )
+
+
+db.restaurants.find({restaurant_id:"41704620"},{address:1,name:1,restaurant_id:1,_id:0}).pretty()
+
+db.restaurants.find({},{address:1,name:1,restaurant_id:1,_id:0}).pretty()
+

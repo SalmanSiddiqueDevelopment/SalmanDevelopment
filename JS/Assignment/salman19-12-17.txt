@@ -1,0 +1,85 @@
+///////////////////  Maximum Value in array
+
+function maxvalue()
+{
+var num = 0;
+for (i = 0; i < a1.length; i++) {
+    if (typeof (a1[i]) == 'number') {
+        if (a1[i] > num) {
+            num = a1[i]
+        }
+    }
+}
+return num;
+}
+//another function
+function maxvalue(a1) {
+    var a2 = a1.filter(function (item) { return typeof item === 'number'; });
+    var num = 0;
+    for (i = 0; i < a2.length; i++) {
+        if (a2[i] > num) {
+            num = a2[i]
+        }
+
+    }
+    return num;
+}
+
+
+var a1 = ['a', 'b', 1, 2,41,52,61.2];
+var rest=maxvalue(a1);
+console.log(rest);
+
+
+//////////////////////// FilterbyType  
+
+function filter(a1,returntype)
+{
+console.log(a1,returntype);
+var a2 = a1.filter(function(item) { return typeof item === returntype; });// A2 unable to get values
+console.log(a2,returntype);
+return a2;
+}
+
+var a1 = ['a', 10, 'b', 20, 'c', 30];
+var a2=[];
+returntype='Number';
+console.log(filter(a1,returntype));
+
+
+////// Array Item List
+function GetItemList(a1)  // Get Array Item List
+{
+a1.forEach(function(item,index,Array)
+{
+    console.log('Item:'+item,' at Index:'+index);
+})
+}
+
+
+var a1= [1, 12,25,44.5,'a','b']
+GetItemList(a1)
+
+
+////////////
+a1=[1,2,3,'a','b'];////entries example
+var a=a1.entries();
+a1.forEach(function(item,index,Array)
+{
+    console.log(a.next().value);
+})
+// another method
+var a = [1,2,3,'a','b'];
+var pk = a.entries();
+
+for (let e of pk) {
+  console.log(e);
+}
+///////////////////////////
+a1=[1,2,3,4];
+a2=['a','b','c'];
+var a3=a1.concat(a2);//concat two array
+console.log(a3);
+////////////////////////////////////
+var a1=[1, 2, 3, 4, 5].copyWithin(-2);//copyWithin
+console.log(a1);
