@@ -46,6 +46,7 @@ dbPerson.find({}, (err, data)=>{
     }else if(data.length==0|| data==null){
         console.log('no data')
     }else{
+       
         console.log(data)
     }
 })
