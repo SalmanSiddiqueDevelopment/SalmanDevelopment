@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SalmanSiddiqueDevelopment/SalmanDevelopment/issues"
   },
-  "homepage": "https://github.com/SalmanSiddiqueDevelopment/SalmanDevelopment#readme"
+  "homepage": "https://github.com/SalmanSiddiqueDevelopment/SalmanDevelopment#readme",
+  "dependencies": {
+    "500": "0.0.0"
+  }
 }
